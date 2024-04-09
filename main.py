@@ -12,7 +12,7 @@ set_cookies(".huggingface.co", {
   "token": "EjbjHwZvZxAOnJzhbIlxgoFiwCNfjvoNrqTZKQkOOQJuatlkwRfiHFFNHkafngCLjJpjLaHZkbTCZDqaKjhmZiHZfTIxJDzqToZGaXMWqNcHKxfinerraVVerniaMPOn"
 })
 set_cookies(".google.com", {
-  "__Secure-1PSID": "g.a000iQgvk0UaP-w9698atETg2E8bLu7B2HHbA1Yfnh_Hae0XKAw5Jj7r_i-inqnGoW76ofhyJAACgYKAWoSAQASFQHGX2MiA8QkEADSfYvETERbtjaK-xoVAUF8yKqrfQdqFH7Ex3Y7RSopr_Y00076"
+  "__Secure-1PSID": "g.a000iQgvk_rzl3U2Qcp1qxibU07V6PzndO1Sf-n3k3Fdhk6bZhNi18a45Spjm830WzUtnor47QACgYKAQwSAQASFQHGX2MigKWzzbgybx01rVqItP1r9hoVAUF8yKpw5yexoEgvR35jO4b0UkSu0076"
 })
 client = Client()
 app = Flask("JoveAPI")
