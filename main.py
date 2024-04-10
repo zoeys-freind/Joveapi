@@ -21,7 +21,7 @@ app = Flask("JoveAPI")
 def chat_s(rq):
     
     response = client.chat.completions.create(
-        provider="Gemini",
+        provider=os.environ["CHAT_PROV"],
         model="",
         messages=rq.get_json()["messages"],
         stream=True
@@ -43,7 +43,7 @@ def image_s(rq):
     
     try:
         response = client.images.generate(
-            model="gemini",
+            model=os.environ["IMAGE_MODEL"],
             prompt=rq.get_json()["prompt"],
         )
         return response.data[0].url
