@@ -19,9 +19,13 @@ app = Flask("JoveAPI")
         
         
 def chat_s(rq):
-    
+    pvdr = "Gemini"
+    if "provider" in rq.get_json():
+      pvdr = rq.get_json()["provider"]
+    else:
+      pvdr = os.environ["CHAT_PROV"]
     response = client.chat.completions.create(
-        provider=os.environ["CHAT_PROV"],
+        provider=pvdr,
         model="",
         messages=rq.get_json()["messages"],
         stream=True
