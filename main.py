@@ -48,7 +48,7 @@ def image_s(rq):
         )
         return response.data[0].url
     except Exception as e:
-        return url_for("ImageError.png")+"?error="+e.__class__.__name__
+        return f"{e.__class__.__name__}: {e}"
     
 
 @app.route('/ai/image', methods=['POST'])
