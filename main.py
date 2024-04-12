@@ -7,11 +7,6 @@ import docs
 import requests as req
 import os
 
-
-
-set_cookies(".huggingface.co", {
-  "token": "EjbjHwZvZxAOnJzhbIlxgoFiwCNfjvoNrqTZKQkOOQJuatlkwRfiHFFNHkafngCLjJpjLaHZkbTCZDqaKjhmZiHZfTIxJDzqToZGaXMWqNcHKxfinerraVVerniaMPOn"
-})
 set_cookies(".google.com", eval(os.environ["GAPI"]))
 client = Client()
 app = Flask("JoveAPI")
