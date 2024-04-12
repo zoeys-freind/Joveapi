@@ -14,14 +14,13 @@ app = Flask("JoveAPI")
         
         
 def chat_s(rq):
-    pvdr = "Gemini"
-    if "provider" in rq.get_json():
-      pvdr = rq.get_json()["provider"]
+    pvdr = "gpt-4"
+    if "model" in rq.get_json():
+      pvdr = rq.get_json()["model"]
     else:
-      pvdr = os.environ["CHAT_PROV"]
+      pvdr = os.environ["CHAT_M"]
     response = client.chat.completions.create(
-        provider=pvdr,
-        model="",
+        model=pvdr,
         messages=rq.get_json()["messages"],
         stream=True
     )
