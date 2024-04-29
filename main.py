@@ -106,7 +106,7 @@ def tenorsearch(search_term):
     if r.status_code == 200:
         # load the GIFs using the urls for the smaller GIF sizes
         top_8gifs = r.json()
-        return send_file(BytesIO(req.get(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"]).content), as_attachment=True, mimetype="image/gif", download_name=search_term+".gif")
+        return redirect(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"])
     else:
         abort(r.status_code)
 
