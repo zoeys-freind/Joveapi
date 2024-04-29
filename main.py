@@ -7,6 +7,7 @@ import docs
 import requests as req
 import os
 import json
+from io import BytesIO
 set_cookies(".google.com", eval(os.environ["GAPI"]))
 client = Client()
 app = Flask("JoveAPI")
@@ -105,7 +106,7 @@ def tenorsearch(search_term):
     if r.status_code == 200:
         # load the GIFs using the urls for the smaller GIF sizes
         top_8gifs = r.json()
-        return req.get(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"]).content
+        return BytesIO(req.get(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"]).content)
     else:
         abort(r.status_code)
 
