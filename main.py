@@ -99,13 +99,13 @@ def tenorsearch(search_term):
     ckey = "joveapi"  # set the client_key for the integration and use the same value for all API calls
 
     # get the top 8 GIFs for the search term
-    r = rq.get(
+    r = req.get(
         "https://tenor.googleapis.com/v2/search?q=%s&key=%s&client_key=%s&limit=%s" % (search_term, apikey, ckey,  lmt))
 
     if r.status_code == 200:
         # load the GIFs using the urls for the smaller GIF sizes
         top_8gifs = r.json()
-        return rq.get(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"]).content
+        return req.get(top_8gifs["results"][0]["media_formats"]["mediumgif"]["url"]).content
     else:
         abort(r.status_code)
 
