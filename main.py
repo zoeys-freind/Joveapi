@@ -11,10 +11,11 @@ set_cookies(".google.com", eval(os.environ["GAPI"]))
 client = Client()
 app = Flask("JoveAPI")
         
-        
+def twae(e):
+    yield f"There was an error loading the response!\n{e.__class__.__name__}: {e}"
         
 def chat_s(rq):
-    pvdr = "gpt-4"
+    pvdr = ""
     if "model" in rq.get_json():
       pvdr = rq.get_json()["model"]
     else:
@@ -33,7 +34,10 @@ def chat_s(rq):
 
 @app.route('/ai/chat', methods=['POST'])
 def ai_chat():
-    return Response(flask.stream_with_context(chat_s(request)))
+    try:
+        return Response(flask.stream_with_context(chat_s(request)))
+    except Exception as e:
+        return Response(flask.stream_with_context(twae(e)))
     
     
     
